@@ -1,4 +1,4 @@
-package com.iteso.pdm18_scrollabletabs.database;
+package com.iteso.pdm18_scrollabletabs.DataBase;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
@@ -6,6 +6,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import com.iteso.pdm18_scrollabletabs.beans.Category;
 import com.iteso.pdm18_scrollabletabs.controllers.CategoryControl;
+import com.iteso.pdm18_scrollabletabs.tools.Constant;
 
 public class DataBaseHandler extends SQLiteOpenHelper {
 
@@ -106,20 +107,20 @@ public class DataBaseHandler extends SQLiteOpenHelper {
         db.execSQL(tableStoreProduct);
 
         String insertCategoryTechnology = "INSERT INTO "
-                + TABLE_CATEGORY + " (Name)"
-                + " VALUES ('Technology'); ";
+                + TABLE_CATEGORY + " (IdCategory, Name)"
+                + " VALUES (" + Constant.FRAGMENT_TECHNOLOGY + ", 'Technology'); ";
 
         db.execSQL(insertCategoryTechnology);
 
         String insertCategoryHome = "INSERT INTO "
-                + TABLE_CATEGORY + " (Name)"
-                + " VALUES ('Home'); ";
+                + TABLE_CATEGORY + " (IdCategory, Name)"
+                + " VALUES (" + Constant.FRAGMENT_HOME + ", 'Home'); ";
 
         db.execSQL(insertCategoryHome);
 
         String insertCategoryElectronics = "INSERT INTO "
-                + TABLE_CATEGORY + " (Name)"
-                + " VALUES ('Electronics'); ";
+                + TABLE_CATEGORY + " (IdCategory, Name)"
+                + " VALUES (" + Constant.FRAGMENT_ELECTRONICS +", 'Electronics'); ";
 
         db.execSQL(insertCategoryElectronics);
 

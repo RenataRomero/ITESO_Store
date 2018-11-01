@@ -12,12 +12,13 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.iteso.pdm18_scrollabletabs.beans.ItemProduct;
+import com.iteso.pdm18_scrollabletabs.controllers.ItemProductControl;
 import com.iteso.pdm18_scrollabletabs.tools.Constant;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 
-
+import com.iteso.pdm18_scrollabletabs.DataBase.DataBaseHandler;
 /**
  * A simple {@link Fragment} subclass.
  */
@@ -45,18 +46,15 @@ public class FragmentTechnology extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-
+        DataBaseHandler dh = DataBaseHandler.getInstance(getActivity());
 
         recyclerView.setHasFixedSize(true);
         // Use a linear layout manager
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(mLayoutManager);
 
-        products = new ArrayList<>();
-        products.add(new ItemProduct(1, "Mac", "BestBuy", "Zapopan", "3312345678", "Lorem Ipsum ....", Constant.TYPE_MAC));
-        products.add(new ItemProduct(2, "Alienware", "DELL", "Zapopan", "3312345678", "Lorem Ipsum ....", Constant.TYPE_ALIENWARE));
-        products.add(new ItemProduct(3, "Lanix", "Saint Jhonny", "Zapopan", "3312345678", "Lorem Ipsum ....", Constant.TYPE_ALIENWARE));
-
+        ItemProductControl itemProductControl = new ItemProductControl();
+        ArrayList<ItemProduct> products = itemProductControl.getItemProductsByCategory(Constant.FRAGMENT_TECHNOLOGY, dh);
 
         adapterProduct = new AdapterProduct(Constant.FRAGMENT_TECHNOLOGY, getActivity(), products);
         recyclerView.setAdapter(adapterProduct);

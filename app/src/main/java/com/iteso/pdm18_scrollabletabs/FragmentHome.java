@@ -12,10 +12,11 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.iteso.pdm18_scrollabletabs.beans.ItemProduct;
+import com.iteso.pdm18_scrollabletabs.controllers.ItemProductControl;
 import com.iteso.pdm18_scrollabletabs.tools.Constant;
 
 import java.util.ArrayList;
-
+import com.iteso.pdm18_scrollabletabs.DataBase.DataBaseHandler;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -42,16 +43,15 @@ public class FragmentHome extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-
+        DataBaseHandler dh = DataBaseHandler.getInstance(getActivity());
 
         recyclerView.setHasFixedSize(true);
         // Use a linear layout manager
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(mLayoutManager);
 
-        ArrayList<ItemProduct> products = new ArrayList<>();
-        products.add(new ItemProduct(4, "Sabanas", "Zara Home", "Zapopan", "3312345678", "Lorem Ipsum ....", Constant.TYPE_SHEETS));
-        products.add(new ItemProduct(5, "Almohadas", "Zara Home", "Zapopan", "3312345678", "Lorem Ipsum ....", Constant.TYPE_PILLOW));
+        ItemProductControl itemProductControl = new ItemProductControl();
+        ArrayList<ItemProduct> products = itemProductControl.getItemProductsByCategory(Constant.FRAGMENT_HOME, dh);
 
         AdapterProduct adapterProduct = new AdapterProduct(Constant.FRAGMENT_HOME, getActivity(), products);
         recyclerView.setAdapter(adapterProduct);

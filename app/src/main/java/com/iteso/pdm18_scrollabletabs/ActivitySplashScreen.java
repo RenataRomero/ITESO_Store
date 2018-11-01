@@ -37,7 +37,7 @@ public class ActivitySplashScreen extends AppCompatActivity {
 
         if(stores.size() == 0){
 
-            Store store1 = new Store;
+            Store store1 = new Store();
             store1.setId(1);
             store1.setName("Best Buy");
 

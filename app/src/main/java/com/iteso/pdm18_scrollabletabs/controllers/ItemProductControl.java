@@ -5,10 +5,9 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.iteso.pdm18_scrollabletabs.beans.Category;
-import com.iteso.pdm18_scrollabletabs.beans.City;
 import com.iteso.pdm18_scrollabletabs.beans.ItemProduct;
 import com.iteso.pdm18_scrollabletabs.beans.Store;
-import com.iteso.pdm18_scrollabletabs.database.DataBaseHandler;
+import com.iteso.pdm18_scrollabletabs.DataBase.DataBaseHandler;
 
 import java.util.ArrayList;
 

@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.iteso.pdm18_scrollabletabs">
-    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -12,7 +14,7 @@
         <activity
             android:name=".ActivityMain"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".ActivityProduct" />
         <activity android:name=".ActivitySplashScreen">
             <intent-filter>
@@ -23,8 +25,9 @@
         </activity>
         <activity
             android:name=".ActivityLogin"
-            android:label="@string/app_name"></activity>
-        <activity android:name=".ActivityPrivacyPolicy"></activity>
+            android:label="@string/app_name" />
+        <activity android:name=".ActivityPrivacyPolicy" />
+        <activity android:name=".ActivityItem"></activity>
     </application>
 
 </manifest>

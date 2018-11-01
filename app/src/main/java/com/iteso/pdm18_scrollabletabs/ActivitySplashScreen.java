@@ -11,7 +11,7 @@ import com.iteso.pdm18_scrollabletabs.beans.Store;
 import com.iteso.pdm18_scrollabletabs.controllers.CategoryControl;
 import com.iteso.pdm18_scrollabletabs.controllers.CityControl;
 import com.iteso.pdm18_scrollabletabs.controllers.StoreControl;
-import com.iteso.pdm18_scrollabletabs.database.DataBaseHandler;
+import com.iteso.pdm18_scrollabletabs.DataBase.DataBaseHandler;
 
 import com.iteso.pdm18_scrollabletabs.beans.User;
 
@@ -53,7 +53,7 @@ public class ActivitySplashScreen extends AppCompatActivity {
 
             Store store2 = new Store();
             store2.setId(2);
-            store2.setName("Best Buy");
+            store2.setName("Zara Home");
 
             City city2 = cities.get(1);
             store2.setCity(city2);
@@ -66,13 +66,13 @@ public class ActivitySplashScreen extends AppCompatActivity {
 
             Store store3 = new Store();
             store3.setId(2);
-            store3.setName("Best Buy");
+            store3.setName("Palacio de Hierro");
 
-            store2.setCity(city2);
+            store2.setCity(city);
             store2.setPhone("12345678");
             store2.setThumbnail(R.drawable.bestbuy);
-            store2.setLatitude(20.6481698);
-            store2.setLongitude(-103.4238223);
+            store2.setLatitude(20.7118858);
+            store2.setLongitude(-103.4131599);
 
             storeControl.addStore(store3, dh);
 

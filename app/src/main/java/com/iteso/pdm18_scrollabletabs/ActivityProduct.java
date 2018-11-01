@@ -37,9 +37,7 @@ public class ActivityProduct extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 itemProduct.setTitle(title.getText().toString());
-                itemProduct.setLocation(location.getText().toString());
                 itemProduct.setStore(store.getText().toString());
-                itemProduct.setPhone(phone.getText().toString());
                 Intent intent = new Intent();
                 intent.putExtra(Constant.EXTRA_PRODUCT, itemProduct);
                 setResult(RESULT_OK, intent);

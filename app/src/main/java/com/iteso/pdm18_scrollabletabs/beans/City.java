@@ -5,6 +5,9 @@ public class City {
     private	int	id;
     private	String	name;
 
+    public City() {
+    }
+
     @Override
     public String toString() {
         return "City{" +

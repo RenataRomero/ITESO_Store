@@ -8,10 +8,13 @@ public class Store {
     private	int	thumbnail;
     private	double	latitude;
     private	double	longitude;
-    private	City	city;
+    private City city;
 
     public int getId() {
         return id;
+    }
+
+    public Store() {
     }
 
     @Override

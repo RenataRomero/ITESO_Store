@@ -3,8 +3,13 @@
       xmlns:tools="http://schemas.android.com/tools"
       tools:context="com.iteso.pdm18_scrollabletabs.ActivityMain">
     <item
-        android:id="@+id/action_settings"
+        android:id="@+id/action_tos"
         android:orderInCategory="100"
-        android:title="@string/action_settings"
+        android:title="@string/action_tos"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/action_logout"
+        android:orderInCategory="100"
+        android:title="@string/action_logout"
         app:showAsAction="never"/>
 </menu>

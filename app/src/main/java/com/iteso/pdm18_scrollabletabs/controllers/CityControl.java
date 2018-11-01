@@ -4,14 +4,12 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.iteso.pdm18_scrollabletabs.DataBase.DataBaseHandler;
-import com.iteso.pdm18_scrollabletabs.beans.Category;
+import com.iteso.pdm18_scrollabletabs.database.DataBaseHandler;
 import com.iteso.pdm18_scrollabletabs.beans.City;
 
 import java.util.ArrayList;
 
 public class CityControl {
-
 
     public void addCity(City city, DataBaseHandler dh){
         SQLiteDatabase db = dh.getWritableDatabase();
@@ -28,8 +26,8 @@ public class CityControl {
         }
     }
 
-    public ArrayList<Category> getCity (DataBaseHandler dh){
-        ArrayList<Category> categories = new ArrayList<>();
+    public ArrayList<City> getCity (DataBaseHandler dh){
+        ArrayList<City> cities = new ArrayList<>();
         SQLiteDatabase db = dh.getReadableDatabase();
 
         String select = "Select " + DataBaseHandler.CITY_ID + ","
@@ -41,7 +39,7 @@ public class CityControl {
             City city = new City();
             city.setId(cursor.getInt(0));
             city.setName(cursor.getString(1));
-            categories.add(city);
+            cities.add(city);
         }
         try {
             cursor.close();
@@ -49,7 +47,7 @@ public class CityControl {
         }catch (Exception e){
         }
 
-        return categories;
+        return cities;
     }
 
     public void deleteCity(int id, DataBaseHandler dh){

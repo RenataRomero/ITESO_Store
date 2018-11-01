@@ -3,11 +3,10 @@ package com.iteso.pdm18_scrollabletabs.beans;
 public class ItemProduct{
     private int code;
     private String title;
-    private Store store;
-    private Category category;
-    private String phone;
     private String description;
     private Integer image;
+    private Store store;
+    private Category category;
 
     public ItemProduct() {
     }
@@ -19,18 +18,16 @@ public class ItemProduct{
                 ", title='" + title + '\'' +
                 ", store='" + store + '\'' +
                 ", category=" + category +
-                ", phone='" + phone + '\'' +
                 ", description='" + description + '\'' +
                 ", image=" + image +
                 '}';
     }
 
-    public ItemProduct(int code, String title, Store store, Category category, String phone, String description, Integer image) {
+    public ItemProduct(int code, String title, Store store, Category category, String description, Integer image) {
         this.code = code;
         this.title = title;
         this.store = store;
         this.category = category;
-        this.phone = phone;
         this.description = description;
         this.image = image;
     }
@@ -65,14 +62,6 @@ public class ItemProduct{
 
     public void setCategory(Category category) {
         this.category = category;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
     }
 
     public String getDescription() {

@@ -22,7 +22,6 @@ import com.iteso.pdm18_scrollabletabs.tools.Constant;
  */
 public class ActivityMain extends AppCompatActivity {
 
-
     private static final int TOTAL_PAGES = 3;
     private FragmentTechnology fragmentTechnology;
     private FragmentHome fragmentHome;

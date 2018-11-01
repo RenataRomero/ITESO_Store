@@ -26,7 +26,7 @@ public class CityControl {
         }
     }
 
-    public ArrayList<City> getCity (DataBaseHandler dh){
+    public ArrayList<City> getCities (DataBaseHandler dh){
         ArrayList<City> cities = new ArrayList<>();
         SQLiteDatabase db = dh.getReadableDatabase();
 

@@ -48,21 +48,27 @@ public class ItemProductControl {
         ArrayList<ItemProduct> itemProducts = new ArrayList<>();
         SQLiteDatabase db = dh.getReadableDatabase();
 
-        String select = "Select " + DataBaseHandler.PRODUCT_ID + ","
-                + DataBaseHandler.PRODUCT_IDCATEGORY + ", "
-                + DataBaseHandler.PRODUCT_IMAGE + ", "
-                + DataBaseHandler.PRODUCT_TITLE + ", "
-                + " FROM " + DataBaseHandler.TABLE_PRODUCT
-                + " WHERE " + DataBaseHandler.PRODUCT_IDCATEGORY + " = " + idCategory;
+        String select = "Select " + "p." + DataBaseHandler.PRODUCT_ID + ","
+                + "p." + DataBaseHandler.PRODUCT_IDCATEGORY + ", "
+                + "p." + DataBaseHandler.PRODUCT_IMAGE + ", "
+                + "p." + DataBaseHandler.PRODUCT_TITLE + ", "
+                + "c." + DataBaseHandler.CATEGORY_NAME
+                + " FROM " + DataBaseHandler.TABLE_PRODUCT + " p, " + DataBaseHandler.TABLE_CATEGORY + " c"
+                + " WHERE " + DataBaseHandler.PRODUCT_IDCATEGORY + " = " + idCategory
+                + " AND p." + DataBaseHandler.PRODUCT_IDCATEGORY + " = c." + DataBaseHandler.CATEGORY_ID;
 
         Cursor cursor = db.rawQuery(select, null);
         while(cursor.moveToNext()){
             Category category = new Category();
 
+            category.setId(cursor.getInt(1));
+            category.setName(cursor.getString(4));
+
             ItemProduct itemProduct = new ItemProduct();
             itemProduct.setCode(cursor.getInt(0));
-
-            itemProduct.setDescription(cursor.getString(2));
+            itemProduct.setCategory(category);
+            itemProduct.setImage(cursor.getInt(2));
+            itemProduct.setTitle(cursor.getString(3));
 
             itemProducts.add(itemProduct);
         }

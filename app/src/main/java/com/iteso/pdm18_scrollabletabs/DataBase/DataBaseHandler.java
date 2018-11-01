@@ -4,6 +4,9 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import com.iteso.pdm18_scrollabletabs.beans.Category;
+import com.iteso.pdm18_scrollabletabs.controllers.CategoryControl;
+
 public class DataBaseHandler extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "itesoStore.db";
@@ -119,6 +122,19 @@ public class DataBaseHandler extends SQLiteOpenHelper {
                 + " VALUES ('Electronics'); ";
 
         db.execSQL(insertCategoryElectronics);
+
+        String insertCityZapopan = "INSERT INTO "
+                + TABLE_CITY + " (Name)"
+                + " VALUES ('Zapopan'); ";
+
+        db.execSQL(insertCityZapopan);
+
+        String insertCityGuadalajara = "INSERT INTO "
+                + TABLE_CATEGORY + " (Name)"
+                + " VALUES ('Guadalajara'); ";
+
+        db.execSQL(insertCityGuadalajara);
+
     }
 
     @Override

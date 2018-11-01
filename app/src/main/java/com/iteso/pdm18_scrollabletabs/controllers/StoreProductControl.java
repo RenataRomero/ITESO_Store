@@ -1,4 +1,4 @@
-package com.iteso.pdm18_scrollabletabs.controlers;
+package com.iteso.pdm18_scrollabletabs.controllers;
 
 import android.content.ContentValues;
 import android.database.Cursor;

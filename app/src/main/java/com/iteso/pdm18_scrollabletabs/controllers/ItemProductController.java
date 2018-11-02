@@ -21,8 +21,7 @@ public class ItemProductController {
 
         Store store = itemProduct.getStore();
         Category category = itemProduct.getCategory();
-
-        valuesProduct.put(DataBaseHandler.PRODUCT_ID, itemProduct.getCode());
+        
         valuesProduct.put(DataBaseHandler.PRODUCT_IMAGE, itemProduct.getImage());
         valuesProduct.put(DataBaseHandler.PRODUCT_TITLE, itemProduct.getTitle());
         valuesProduct.put(DataBaseHandler.PRODUCT_IDCATEGORY, category.getId());

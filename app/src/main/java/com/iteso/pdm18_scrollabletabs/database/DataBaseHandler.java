@@ -1,19 +1,24 @@
 package com.iteso.pdm18_scrollabletabs.database;
 
+import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
-
+import com.iteso.database.provider.*;
+import com.iteso.pdm18_scrollabletabs.beans.ItemProduct;
 import com.iteso.pdm18_scrollabletabs.tools.Constant;
+
 
 public class DataBaseHandler extends SQLiteOpenHelper {
 
+    private ContentResolver myCR;
     private static final String DATABASE_NAME = "itesoStore.db";
     private static final int DATABASE_VERSION = 1;
 
-    private static DataBaseHandler dataBaseHandler;
+    public static DataBaseHandler dataBaseHandler;
 
     //TABLES
     public static final String TABLE_STORE = "Store";
@@ -51,7 +56,7 @@ public class DataBaseHandler extends SQLiteOpenHelper {
     public static final String STOREPRODUCT_IDSTORE = "IdStore";
 
 
-    private DataBaseHandler(Context context){
+    public DataBaseHandler(Context context){
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
@@ -128,7 +133,6 @@ public class DataBaseHandler extends SQLiteOpenHelper {
                 null,  valuesElectronics);
 
         ContentValues valuesCityZapopan = new ContentValues();
-        valuesCityZapopan.put(CITY_NAME, "Zapopan");
         valuesCityZapopan.put(CITY_NAME, "Zapopan"); // set name
 
         db.insert(TABLE_CITY,
@@ -147,7 +151,36 @@ public class DataBaseHandler extends SQLiteOpenHelper {
 
     }
 
+    public ItemProduct getItemsProductsByCategory(String productCategory) {
+        String[] projection = {PRODUCT_TITLE};
+
+        String selection = "productname = \"" + productCategory+ "\"";
+
+        Cursor cursor = myCR.query(ContentProvider.CONTENT_URI,
+                projection, selection, null,
+                null);
+
+        ItemProduct product = new ItemProduct();
+
+        if (cursor.moveToFirst()) {
+            cursor.moveToFirst();
+            product.setTitle((cursor.getString(1)));
+
+            cursor.close();
+        } else {
+            product = null;
+        }
+        return product;
+    }
+
 }
+
+
+
+
+
+
+
 
 
 

@@ -2,13 +2,13 @@
 <resources>
 
     <string-array name="activity_item_spinner_imagenes">
-        <item>alienware</item>
-        <item>bestbuy</item>
         <item>mac</item>
-        <item>micro</item>
-        <item>pillows</item>
-        <item>refrigerator</item>
+        <item>alienware</item>
         <item>sheets</item>
+        <item>pillow</item>
+        <item>refrigerator</item>
+        <item>micro</item>
+        <item>bestbuy</item>
     </string-array>
 
 </resources>

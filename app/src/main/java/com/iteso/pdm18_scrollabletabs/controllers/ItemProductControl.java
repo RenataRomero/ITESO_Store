@@ -47,32 +47,39 @@ public class ItemProductControl {
         ArrayList<ItemProduct> itemProducts = new ArrayList<>();
         SQLiteDatabase db = dh.getReadableDatabase();
 
-        String select = "Select " + "p." + DataBaseHandler.PRODUCT_ID + ","
-                + "p." + DataBaseHandler.PRODUCT_IDCATEGORY + ", "
-                + "p." + DataBaseHandler.PRODUCT_IMAGE + ", "
-                + "p." + DataBaseHandler.PRODUCT_TITLE + ", "
-                + "c." + DataBaseHandler.CATEGORY_NAME
-                + " FROM " + DataBaseHandler.TABLE_PRODUCT + " p, " + DataBaseHandler.TABLE_CATEGORY + " c"
-                + " WHERE " + DataBaseHandler.PRODUCT_IDCATEGORY + " = " + idCategory
-                + " AND p." + DataBaseHandler.PRODUCT_IDCATEGORY + " = c." + DataBaseHandler.CATEGORY_ID;
+        String selectProduct = "Select " + DataBaseHandler.PRODUCT_ID + ", "
+                + DataBaseHandler.PRODUCT_IDCATEGORY + ", "
+                + DataBaseHandler.PRODUCT_IMAGE + ", "
+                +  DataBaseHandler.PRODUCT_TITLE
+                + " FROM " + DataBaseHandler.TABLE_PRODUCT
+                + " WHERE " + DataBaseHandler.PRODUCT_IDCATEGORY + " = " + idCategory;
 
-        Cursor cursor = db.rawQuery(select, null);
-        while(cursor.moveToNext()){
+        Cursor cursorProduct = db.rawQuery(selectProduct, null);
+
+        String selectCategory = "Select " + DataBaseHandler.CATEGORY_ID + ","
+                + DataBaseHandler.CATEGORY_NAME
+                + " FROM " + DataBaseHandler.TABLE_CATEGORY
+                + " WHERE " + DataBaseHandler.CATEGORY_ID + " = " + idCategory;
+
+        Cursor cursorCategory = db.rawQuery(selectCategory, null);
+        cursorCategory.moveToNext();
+
+        while(cursorProduct.moveToNext()){
             Category category = new Category();
 
-            category.setId(cursor.getInt(1));
-            category.setName(cursor.getString(4));
+            category.setId(cursorCategory.getInt(0));
+            category.setName(cursorCategory.getString(1));
 
             ItemProduct itemProduct = new ItemProduct();
-            itemProduct.setCode(cursor.getInt(0));
+            itemProduct.setCode(cursorProduct.getInt(0));
             itemProduct.setCategory(category);
-            itemProduct.setImage(cursor.getInt(2));
-            itemProduct.setTitle(cursor.getString(3));
+            itemProduct.setImage(cursorProduct.getInt(2));
+            itemProduct.setTitle(cursorProduct.getString(3));
 
             itemProducts.add(itemProduct);
         }
         try {
-            cursor.close();
+            cursorProduct.close();
             db.close();
         }catch (Exception e){
         }

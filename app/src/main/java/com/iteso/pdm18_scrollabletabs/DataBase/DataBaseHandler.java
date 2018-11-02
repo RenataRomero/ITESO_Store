@@ -83,10 +83,10 @@ public class DataBaseHandler extends SQLiteOpenHelper {
 
 
         String tableProduct = "CREATE TABLE " + TABLE_PRODUCT + " ("
-                + PRODUCT_ID + " INTEGER PRIMARY KEY,"
+                + PRODUCT_ID + " INTEGER PRIMARY KEY, "
                 + PRODUCT_TITLE + " TEXT, "
-                + PRODUCT_IMAGE + "INTEGER, "
-                +  PRODUCT_IDCATEGORY + ")";
+                + PRODUCT_IMAGE + " INTEGER, "
+                + PRODUCT_IDCATEGORY + ")";
 
         db.execSQL(tableProduct);
 

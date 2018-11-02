@@ -6,6 +6,7 @@ import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +16,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.iteso.pdm18_scrollabletabs.beans.ItemProduct;
+import com.iteso.pdm18_scrollabletabs.beans.Store;
+import com.iteso.pdm18_scrollabletabs.controllers.StoreController;
+import com.iteso.pdm18_scrollabletabs.database.DataBaseHandler;
 import com.iteso.pdm18_scrollabletabs.tools.Constant;
 
 import java.util.ArrayList;
@@ -27,6 +31,7 @@ import java.util.ArrayList;
 public class AdapterProduct extends RecyclerView.Adapter<AdapterProduct.ViewHolder>{
 
     private ArrayList<ItemProduct> products;
+    private ArrayList<Store> stores;
     private Context context;
     private int fragment;
 
@@ -64,7 +69,10 @@ public class AdapterProduct extends RecyclerView.Adapter<AdapterProduct.ViewHold
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.mTitle.setText(products.get(holder.getAdapterPosition()).getTitle());
-        //holder.mStore.setText(products.get(holder.getAdapterPosition()).getStore().getName().toString());
+
+        //Log.e("ALMOSTDER", products.get(holder.getAdapterPosition()).getStore().getName().toString());
+
+        //holder.mStore.setText(products.get(holder.getAdapterPosition()).getStore().getName());
         //holder.mPhone.setText(products.get(holder.getAdapterPosition()).getPhone());
 
         switch(products.get(holder.getAdapterPosition()).getImage()){

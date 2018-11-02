@@ -9,34 +9,36 @@
 
     <Spinner
         android:id="@+id/activity_item_spinner_imagenes"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
     </Spinner>
 
     <EditText
         android:id="@+id/activity_item_edit_text_titulo"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
     <Spinner
         android:id="@+id/activity_item_spinner_categorias"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
     </Spinner>
 
     <Spinner
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/activity_item_spinner_tiendas">
 
     </Spinner>
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/activity_item_button_guardar"
+        android:layout_gravity="bottom"
+        android:layout_marginTop="@dimen/save_button"
         android:text="Guardar"/>
 
 </LinearLayout>

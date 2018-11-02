@@ -32,6 +32,19 @@ public class StoreController {
         }
     }
 
+    public int getIdStore(String name, DataBaseHandler dh) {
+
+        SQLiteDatabase db = dh.getReadableDatabase();
+        String select = "Select " + DataBaseHandler.STORE_ID
+                + " FROM " + DataBaseHandler.TABLE_STORE
+                + " WHERE " + DataBaseHandler.STORE_NAME + " = '" + name + "'";
+
+        Cursor cursor = db.rawQuery(select, null);
+        cursor.moveToFirst();
+        return cursor.getInt(0);
+
+    }
+
     public ArrayList<Store> getStores(DataBaseHandler dh) {
         ArrayList<Store> stores = new ArrayList<>();
         SQLiteDatabase db = dh.getReadableDatabase();

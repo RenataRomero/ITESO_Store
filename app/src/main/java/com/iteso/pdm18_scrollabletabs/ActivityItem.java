@@ -1,6 +1,7 @@
 package com.iteso.pdm18_scrollabletabs;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -9,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 
+import com.iteso.pdm18_scrollabletabs.beans.City;
 import com.iteso.pdm18_scrollabletabs.beans.ItemProduct;
 import com.iteso.pdm18_scrollabletabs.controllers.ItemProductController;
 import com.iteso.pdm18_scrollabletabs.database.DataBaseHandler;
@@ -55,7 +57,7 @@ public class ActivityItem extends AppCompatActivity {
 
         for(int i = 0; i < stores.size(); i++){
 
-            namesStores.add(stores.get(i).getName() + " " + stores.get(i).getCity().getName());
+            namesStores.add(stores.get(i).getName());
 
         }
 
@@ -84,13 +86,11 @@ public class ActivityItem extends AppCompatActivity {
                 StoreController storeController = new StoreController();
                 ItemProductController itemProductController = new ItemProductController();
 
-                ArrayList<String> categories = new ArrayList<String>();
-                ArrayList<String> stores = new ArrayList<String>();
+                store.setName(tiendas.getSelectedItem().toString());
+                store.setId(storeController.getIdStore(tiendas.getSelectedItem().toString(), dh));
 
                 category.setName(categorias.getSelectedItem().toString());
                 category.setId(categorias.getSelectedItemPosition());
-                store.setName(tiendas.getSelectedItem().toString());
-                store.setId(tiendas.getSelectedItemPosition());
 
                 itemProduct.setCategory(category);
                 itemProduct.setStore(store);

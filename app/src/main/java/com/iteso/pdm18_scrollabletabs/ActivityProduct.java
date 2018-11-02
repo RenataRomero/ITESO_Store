@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -40,12 +41,11 @@ public class ActivityProduct extends AppCompatActivity {
             public void onClick(View v) {
                 itemProduct.setTitle(title.getText().toString());
 
-                Store store = new Store();
+                Store store1 = itemProduct.getStore();
                 StoreController storeController = new StoreController();
 
-
-
-                //itemProduct.setStore.setName(store.getText().toString());
+                store1.setName(store.getText().toString());
+                itemProduct.setStore(store1);
                 Intent intent = new Intent();
                 //intent.putExtra(Constant.EXTRA_PRODUCT, itemProduct);
                 setResult(RESULT_OK, intent);
@@ -65,8 +65,10 @@ public class ActivityProduct extends AppCompatActivity {
             itemProduct = getIntent().getParcelableExtra(Constant.EXTRA_PRODUCT);
             if (itemProduct != null) {
                 title.setText(itemProduct.getTitle());
-                //store.setText(itemProduct.getStore());
-                //phone.setText(itemProduct.getPhone());
+                store.setText(itemProduct.getStore().getName());
+                Log.e("PRODUCTACT", itemProduct.getStore().getName());
+
+                //phone.setText(itemProduct.getStore().getPhone());
                 switch (itemProduct.getImage()) {
                     case Constant.TYPE_MAC:
                         image.setImageResource(R.drawable.mac);

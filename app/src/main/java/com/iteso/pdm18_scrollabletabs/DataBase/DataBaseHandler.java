@@ -128,6 +128,7 @@ public class DataBaseHandler extends SQLiteOpenHelper {
                 null,  valuesElectronics);
 
         ContentValues valuesCityZapopan = new ContentValues();
+        valuesCityZapopan.put(CITY_NAME, "Zapopan");
         valuesCityZapopan.put(CITY_NAME, "Zapopan"); // set name
 
         db.insert(TABLE_CITY,

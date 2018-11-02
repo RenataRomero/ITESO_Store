@@ -13,7 +13,7 @@ import android.view.ViewGroup;
 
 import com.iteso.pdm18_scrollabletabs.database.DataBaseHandler;
 import com.iteso.pdm18_scrollabletabs.beans.ItemProduct;
-import com.iteso.pdm18_scrollabletabs.controllers.ItemProductControl;
+import com.iteso.pdm18_scrollabletabs.controllers.ItemProductController;
 import com.iteso.pdm18_scrollabletabs.tools.Constant;
 
 import java.util.ArrayList;
@@ -51,8 +51,8 @@ public class FragmentElectronics extends Fragment {
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(mLayoutManager);
 
-        ItemProductControl itemProductControl = new ItemProductControl();
-        ArrayList<ItemProduct> products = itemProductControl.getItemProductsByCategory(Constant.FRAGMENT_ELECTRONICS, dh);
+        ItemProductController itemProductController = new ItemProductController();
+        ArrayList<ItemProduct> products = itemProductController.getItemProductsByCategory(Constant.FRAGMENT_ELECTRONICS, dh);
 
         AdapterProduct adapterProduct = new AdapterProduct(Constant.FRAGMENT_ELECTRONICS, getActivity(), products);
         recyclerView.setAdapter(adapterProduct);

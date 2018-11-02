@@ -64,7 +64,7 @@ public class AdapterProduct extends RecyclerView.Adapter<AdapterProduct.ViewHold
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.mTitle.setText(products.get(holder.getAdapterPosition()).getTitle());
-        holder.mStore.setText(products.get(holder.getAdapterPosition()).getStore().getName());
+        //holder.mStore.setText(products.get(holder.getAdapterPosition()).getStore().getName().toString());
         //holder.mPhone.setText(products.get(holder.getAdapterPosition()).getPhone());
 
         switch(products.get(holder.getAdapterPosition()).getImage()){

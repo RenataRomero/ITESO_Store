@@ -6,8 +6,6 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
-import com.iteso.pdm18_scrollabletabs.beans.Category;
-import com.iteso.pdm18_scrollabletabs.controllers.CategoryControl;
 import com.iteso.pdm18_scrollabletabs.tools.Constant;
 
 public class DataBaseHandler extends SQLiteOpenHelper {
@@ -83,7 +81,7 @@ public class DataBaseHandler extends SQLiteOpenHelper {
 
 
         String tableProduct = "CREATE TABLE " + TABLE_PRODUCT + " ("
-                + PRODUCT_ID + " INTEGER PRIMARY KEY, "
+                + PRODUCT_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + PRODUCT_TITLE + " TEXT, "
                 + PRODUCT_IMAGE + " INTEGER, "
                 + PRODUCT_IDCATEGORY + ")";

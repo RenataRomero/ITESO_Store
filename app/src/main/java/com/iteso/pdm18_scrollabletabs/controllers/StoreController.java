@@ -11,7 +11,7 @@ import com.iteso.pdm18_scrollabletabs.beans.Store;
 
 import java.util.ArrayList;
 
-public class StoreControl {
+public class StoreController {
     public void addStore(Store store, DataBaseHandler dh) {
         SQLiteDatabase db = dh.getWritableDatabase();
         ContentValues values = new ContentValues();

@@ -1,5 +1,6 @@
 package com.iteso.pdm18_scrollabletabs;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -9,11 +10,12 @@ import android.widget.EditText;
 import android.widget.Spinner;
 
 import com.iteso.pdm18_scrollabletabs.beans.ItemProduct;
+import com.iteso.pdm18_scrollabletabs.controllers.ItemProductController;
 import com.iteso.pdm18_scrollabletabs.database.DataBaseHandler;
 import com.iteso.pdm18_scrollabletabs.beans.Category;
 import com.iteso.pdm18_scrollabletabs.beans.Store;
-import com.iteso.pdm18_scrollabletabs.controllers.CategoryControl;
-import com.iteso.pdm18_scrollabletabs.controllers.StoreControl;
+import com.iteso.pdm18_scrollabletabs.controllers.CategoryController;
+import com.iteso.pdm18_scrollabletabs.controllers.StoreController;
 
 import java.util.ArrayList;
 
@@ -35,12 +37,12 @@ public class ActivityItem extends AppCompatActivity {
         titulo = findViewById(R.id.activity_item_edit_text_titulo);
         guardar = findViewById(R.id.activity_item_button_guardar);
 
-        DataBaseHandler dh = DataBaseHandler.getInstance(ActivityItem.this);
-        CategoryControl categoryControl = new CategoryControl();
-        StoreControl storeControl = new StoreControl();
+        final DataBaseHandler dh = DataBaseHandler.getInstance(ActivityItem.this);
+        CategoryController categoryController = new CategoryController();
+        StoreController storeController = new StoreController();
 
-        final ArrayList<Category> categories = categoryControl.getCategories(dh);
-        ArrayList<Store> stores = storeControl.getStores(dh);
+        final ArrayList<Category> categories = categoryController.getCategories(dh);
+        ArrayList<Store> stores = storeController.getStores(dh);
 
         ArrayList<String> namesCategories = new ArrayList<String>();
         ArrayList<String> namesStores = new ArrayList<String>();
@@ -76,15 +78,31 @@ public class ActivityItem extends AppCompatActivity {
                 ItemProduct itemProduct = new ItemProduct();
                 Category category = new Category();
                 Store store = new Store();
+                DataBaseHandler dh = DataBaseHandler.getInstance(ActivityItem.this);
+
+                CategoryController categoryController = new CategoryController();
+                StoreController storeController = new StoreController();
+                ItemProductController itemProductController = new ItemProductController();
+
+                ArrayList<String> categories = new ArrayList<String>();
+                ArrayList<String> stores = new ArrayList<String>();
 
                 category.setName(categorias.getSelectedItem().toString());
+                category.setId(categorias.getSelectedItemPosition());
                 store.setName(tiendas.getSelectedItem().toString());
+                store.setId(tiendas.getSelectedItemPosition());
 
                 itemProduct.setCategory(category);
                 itemProduct.setStore(store);
 
                 itemProduct.setTitle(titulo.getText().toString());
                 itemProduct.setImage(imagenes.getSelectedItemPosition());
+
+                itemProductController.addItemProduct(itemProduct, dh);
+
+                Intent intent = new Intent(ActivityItem.this,ActivityMain.class);
+                startActivity(intent);
+                finish();
 
             }
         });

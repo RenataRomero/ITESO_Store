@@ -8,7 +8,7 @@ import com.iteso.pdm18_scrollabletabs.beans.Category;
 
 import java.util.ArrayList;
 
-public class CategoryControl {
+public class CategoryController {
 
     public ArrayList<Category> getCategories (DataBaseHandler dh){
         ArrayList<Category> categories = new ArrayList<>();

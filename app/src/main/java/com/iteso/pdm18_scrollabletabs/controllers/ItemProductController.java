@@ -3,6 +3,7 @@ package com.iteso.pdm18_scrollabletabs.controllers;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 import com.iteso.pdm18_scrollabletabs.beans.Category;
 import com.iteso.pdm18_scrollabletabs.beans.ItemProduct;
@@ -11,9 +12,9 @@ import com.iteso.pdm18_scrollabletabs.database.DataBaseHandler;
 
 import java.util.ArrayList;
 
-public class ItemProductControl {
+public class ItemProductController {
 
-    public void add(ItemProduct itemProduct, DataBaseHandler dh){
+    public void addItemProduct(ItemProduct itemProduct, DataBaseHandler dh){
 
         SQLiteDatabase db = dh.getWritableDatabase();
         ContentValues valuesProduct = new ContentValues();
@@ -28,12 +29,14 @@ public class ItemProductControl {
 
         db.insert(DataBaseHandler.TABLE_PRODUCT, null, valuesProduct);
 
+        Log.e("INSERTPRODUCTS", "Se inserto el producto");
+
         ContentValues valuesStoreProduct = new ContentValues();
 
         valuesStoreProduct.put(DataBaseHandler.PRODUCT_ID, itemProduct.getCode());
         valuesStoreProduct.put(DataBaseHandler.STORE_ID, store.getId());
 
-        db.insert(DataBaseHandler.TABLE_STOREPRODUCT, null, valuesProduct);
+        db.insert(DataBaseHandler.TABLE_STOREPRODUCT, null, valuesStoreProduct);
 
         try {
             db.close();

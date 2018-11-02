@@ -9,7 +9,7 @@ import com.iteso.pdm18_scrollabletabs.beans.City;
 
 import java.util.ArrayList;
 
-public class CityControl {
+public class CityController {
 
     public void addCity(City city, DataBaseHandler dh){
         SQLiteDatabase db = dh.getWritableDatabase();

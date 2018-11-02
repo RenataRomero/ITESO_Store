@@ -6,12 +6,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 
-import com.iteso.pdm18_scrollabletabs.beans.Category;
 import com.iteso.pdm18_scrollabletabs.beans.City;
 import com.iteso.pdm18_scrollabletabs.beans.Store;
-import com.iteso.pdm18_scrollabletabs.controllers.CategoryControl;
-import com.iteso.pdm18_scrollabletabs.controllers.CityControl;
-import com.iteso.pdm18_scrollabletabs.controllers.StoreControl;
+import com.iteso.pdm18_scrollabletabs.controllers.CityController;
+import com.iteso.pdm18_scrollabletabs.controllers.StoreController;
 import com.iteso.pdm18_scrollabletabs.database.DataBaseHandler;
 
 import com.iteso.pdm18_scrollabletabs.beans.User;
@@ -31,12 +29,12 @@ public class ActivitySplashScreen extends AppCompatActivity {
         setContentView(R.layout.activity_splash_screen);
 
         DataBaseHandler dh = DataBaseHandler.getInstance(ActivitySplashScreen.this);
-        CityControl cityControl = new CityControl();
-        StoreControl storeControl = new StoreControl();
+        CityController cityController = new CityController();
+        StoreController storeController = new StoreController();
 
 
-        ArrayList<Store> stores = storeControl.getStores(dh);
-        ArrayList<City> cities = cityControl.getCities(dh);
+        ArrayList<Store> stores = storeController.getStores(dh);
+        ArrayList<City> cities = cityController.getCities(dh);
 
         Log.e("CIUDADES", cities.get(1).getName());
 
@@ -54,7 +52,7 @@ public class ActivitySplashScreen extends AppCompatActivity {
             store1.setLatitude(20.7118858);
             store1.setLongitude(-103.4131599);
 
-            storeControl.addStore(store1, dh);
+            storeController.addStore(store1, dh);
 
             Store store2 = new Store();
             store2.setId(2);
@@ -67,7 +65,7 @@ public class ActivitySplashScreen extends AppCompatActivity {
             store2.setLatitude(20.6774144);
             store2.setLongitude(-103.4339508);
 
-            storeControl.addStore(store2, dh);
+            storeController.addStore(store2, dh);
 
             Store store3 = new Store();
             store3.setId(3);
@@ -79,7 +77,7 @@ public class ActivitySplashScreen extends AppCompatActivity {
             store3.setLatitude(20.7118858);
             store3.setLongitude(-103.4131599);
 
-            storeControl.addStore(store3, dh);
+            storeController.addStore(store3, dh);
 
         }
 

@@ -2,6 +2,7 @@ package com.iteso.pdm18_scrollabletabs;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TabLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -13,6 +14,7 @@ import android.support.v4.view.ViewPager;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.iteso.pdm18_scrollabletabs.tools.Constant;
 
@@ -34,6 +36,7 @@ public class ActivityMain extends AppCompatActivity {
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         TabLayout tabLayout = findViewById(R.id.tabs);
+        FloatingActionButton fab = findViewById(R.id.fab);
 
         setSupportActionBar(toolbar);
         // Create the adapter that will return a fragment for each of the three
@@ -44,6 +47,15 @@ public class ActivityMain extends AppCompatActivity {
         ViewPager mViewPager = findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
         tabLayout.setupWithViewPager(mViewPager);
+
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ActivityMain.this,ActivityItem.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
     }
 

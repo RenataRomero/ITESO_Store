@@ -11,6 +11,8 @@ import android.widget.EditText;
 import android.widget.ImageView;
 
 import com.iteso.pdm18_scrollabletabs.beans.ItemProduct;
+import com.iteso.pdm18_scrollabletabs.beans.Store;
+import com.iteso.pdm18_scrollabletabs.controllers.StoreController;
 import com.iteso.pdm18_scrollabletabs.tools.Constant;
 
 public class ActivityProduct extends AppCompatActivity {
@@ -37,9 +39,15 @@ public class ActivityProduct extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 itemProduct.setTitle(title.getText().toString());
+
+                Store store = new Store();
+                StoreController storeController = new StoreController();
+
+
+
                 //itemProduct.setStore.setName(store.getText().toString());
                 Intent intent = new Intent();
-               //intent.putExtra(Constant.EXTRA_PRODUCT, itemProduct);
+                //intent.putExtra(Constant.EXTRA_PRODUCT, itemProduct);
                 setResult(RESULT_OK, intent);
                 finish();
             }

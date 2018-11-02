@@ -3,6 +3,7 @@ package com.iteso.pdm18_scrollabletabs.controllers;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 import com.iteso.pdm18_scrollabletabs.beans.City;
 import com.iteso.pdm18_scrollabletabs.database.DataBaseHandler;
@@ -35,6 +36,8 @@ public class StoreControl {
         ArrayList<Store> stores = new ArrayList<>();
         SQLiteDatabase db = dh.getReadableDatabase();
 
+        Log.e("GETSTORES", "Entro al getStores");
+
         String select = "Select " + "s." + DataBaseHandler.STORE_ID + ", "
                 + "s." + DataBaseHandler.STORE_IDCITY + ", "
                 + "s." + DataBaseHandler.STORE_LONGITUDE + ", "
@@ -43,7 +46,7 @@ public class StoreControl {
                 + "s." + DataBaseHandler.STORE_PHONE + ", "
                 + "s." + DataBaseHandler.STORE_THUMBNAIL + ", "
                 + "c." + DataBaseHandler.CITY_NAME
-                + " FROM " + DataBaseHandler.TABLE_STORE + " s INNER JOIN " + DataBaseHandler.TABLE_CITY + " c ON s." + DataBaseHandler.STORE_IDCITY + " = c." + DataBaseHandler.CITY_ID;
+                + " FROM " + DataBaseHandler.TABLE_STORE + " as s, " + DataBaseHandler.TABLE_CITY + " as c WHERE s." + DataBaseHandler.STORE_IDCITY + " = c." + DataBaseHandler.CITY_ID;
 
         Cursor cursor = db.rawQuery(select, null);
         while (cursor.moveToNext()) {

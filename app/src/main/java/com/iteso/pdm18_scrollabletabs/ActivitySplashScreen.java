@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 
 import com.iteso.pdm18_scrollabletabs.beans.Category;
 import com.iteso.pdm18_scrollabletabs.beans.City;
@@ -25,22 +26,26 @@ public class ActivitySplashScreen extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
-        DataBaseHandler dh = DataBaseHandler.getInstance(ActivitySplashScreen.this);
 
-        StoreControl storeControl = new StoreControl();
+        DataBaseHandler dh = DataBaseHandler.getInstance(ActivitySplashScreen.this);
         CityControl cityControl = new CityControl();
+        StoreControl storeControl = new StoreControl();
+
 
         ArrayList<Store> stores = storeControl.getStores(dh);
         ArrayList<City> cities = cityControl.getCities(dh);
 
-        if(stores.size() == 0){
+        Log.e("CIUDADES", cities.get(1).getName());
+
+        if(stores.size() == 0) {
+            Log.e("TIENDAS", "No hay tiendas, entra al if");
 
             Store store1 = new Store();
             store1.setId(1);
             store1.setName("Best Buy");
-
             City city = cities.get(0);
 
             store1.setCity(city);
@@ -65,14 +70,14 @@ public class ActivitySplashScreen extends AppCompatActivity {
             storeControl.addStore(store2, dh);
 
             Store store3 = new Store();
-            store3.setId(2);
+            store3.setId(3);
             store3.setName("Palacio de Hierro");
 
-            store2.setCity(city);
-            store2.setPhone("12345678");
-            store2.setThumbnail(R.drawable.bestbuy);
-            store2.setLatitude(20.7118858);
-            store2.setLongitude(-103.4131599);
+            store3.setCity(city);
+            store3.setPhone("12345678");
+            store3.setThumbnail(R.drawable.bestbuy);
+            store3.setLatitude(20.7118858);
+            store3.setLongitude(-103.4131599);
 
             storeControl.addStore(store3, dh);
 

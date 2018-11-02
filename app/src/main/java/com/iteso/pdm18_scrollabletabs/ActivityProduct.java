@@ -58,7 +58,7 @@ public class ActivityProduct extends AppCompatActivity {
             if (itemProduct != null) {
                 title.setText(itemProduct.getTitle());
                 //store.setText(itemProduct.getStore());
-                phone.setText(itemProduct.getPhone());
+                //phone.setText(itemProduct.getPhone());
                 switch (itemProduct.getImage()) {
                     case Constant.TYPE_MAC:
                         image.setImageResource(R.drawable.mac);

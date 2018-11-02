@@ -7,7 +7,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 
-import com.iteso.pdm18_scrollabletabs.DataBase.DataBaseHandler;
+import com.iteso.pdm18_scrollabletabs.database.DataBaseHandler;
 import com.iteso.pdm18_scrollabletabs.beans.Category;
 import com.iteso.pdm18_scrollabletabs.beans.Store;
 import com.iteso.pdm18_scrollabletabs.controllers.CategoryControl;
@@ -42,7 +42,6 @@ public class ActivityItem extends AppCompatActivity {
 
         ArrayList<String> namesCategories = new ArrayList<String>();
         ArrayList<String> namesStores = new ArrayList<String>();
-        ArrayList<String> namesImages = new ArrayList<String>();
 
         for(int i = 0; i < categories.size(); i++){
 
@@ -61,13 +60,13 @@ public class ActivityItem extends AppCompatActivity {
         ArrayAdapter<String> namesStoresAdapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_spinner_item, namesStores);
         ArrayAdapter<String> namesImagesAdapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_spinner_item, namesImages);
+                android.R.layout.simple_spinner_item, getResources().getStringArray(R.array.activity_item_spinner_imagenes));
 
         categorias.setAdapter(namesCategoriesAdapter);
         tiendas.setAdapter(namesStoresAdapter);
         imagenes.setAdapter(namesImagesAdapter);
 
-
-
     }
+
+    guardar.OnClickListener
 }

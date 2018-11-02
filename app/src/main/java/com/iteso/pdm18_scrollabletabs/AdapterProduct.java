@@ -64,8 +64,7 @@ public class AdapterProduct extends RecyclerView.Adapter<AdapterProduct.ViewHold
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.mTitle.setText(products.get(holder.getAdapterPosition()).getTitle());
-        holder.mStore.setText(products.get(holder.getAdapterPosition()).getStore());
-        holder.mLocation.setText(products.get(holder.getAdapterPosition()).getLocation());
+        holder.mStore.setText(products.get(holder.getAdapterPosition()).getStore().getName());
         holder.mPhone.setText(products.get(holder.getAdapterPosition()).getPhone());
 
         switch(products.get(holder.getAdapterPosition()).getImage()){
@@ -92,7 +91,7 @@ public class AdapterProduct extends RecyclerView.Adapter<AdapterProduct.ViewHold
                 //        Toast.LENGTH_LONG).show();
 
                 Intent intent = new Intent(context, ActivityProduct.class);
-                intent.putExtra(Constant.EXTRA_PRODUCT, products.get(holder.getAdapterPosition()));
+                //intent.putExtra(Constant.EXTRA_PRODUCT, products.get(holder.getAdapterPosition()));
                 intent.putExtra(Constant.EXTRA_FRAGMENT, fragment);
                 ((ActivityMain) context).startActivityForResult(intent, Constant.ACTIVITY_DETAIL);
             }

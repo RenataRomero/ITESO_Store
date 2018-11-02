@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="activity_item_spinner_imagenes">
+        <item>alienware</item>
+        <item>bestbuy</item>
+        <item>mac</item>
+        <item>micro</item>
+        <item>pillows</item>
+        <item>refrigerator</item>
+        <item>sheets</item>
+    </string-array>
+
+</resources>

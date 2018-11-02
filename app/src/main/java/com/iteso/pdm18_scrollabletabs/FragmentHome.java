@@ -16,7 +16,7 @@ import com.iteso.pdm18_scrollabletabs.controllers.ItemProductControl;
 import com.iteso.pdm18_scrollabletabs.tools.Constant;
 
 import java.util.ArrayList;
-import com.iteso.pdm18_scrollabletabs.DataBase.DataBaseHandler;
+import com.iteso.pdm18_scrollabletabs.database.DataBaseHandler;
 
 /**
  * A simple {@link Fragment} subclass.

@@ -11,7 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.iteso.pdm18_scrollabletabs.DataBase.DataBaseHandler;
+import com.iteso.pdm18_scrollabletabs.database.DataBaseHandler;
 import com.iteso.pdm18_scrollabletabs.beans.ItemProduct;
 import com.iteso.pdm18_scrollabletabs.controllers.ItemProductControl;
 import com.iteso.pdm18_scrollabletabs.tools.Constant;

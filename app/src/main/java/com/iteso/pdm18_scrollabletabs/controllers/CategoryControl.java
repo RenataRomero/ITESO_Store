@@ -3,7 +3,7 @@ package com.iteso.pdm18_scrollabletabs.controllers;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.iteso.pdm18_scrollabletabs.DataBase.DataBaseHandler;
+import com.iteso.pdm18_scrollabletabs.database.DataBaseHandler;
 import com.iteso.pdm18_scrollabletabs.beans.Category;
 
 import java.util.ArrayList;

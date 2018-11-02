@@ -37,9 +37,9 @@ public class ActivityProduct extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 itemProduct.setTitle(title.getText().toString());
-                itemProduct.setStore(store.getText().toString());
+                //itemProduct.setStore.setName(store.getText().toString());
                 Intent intent = new Intent();
-                intent.putExtra(Constant.EXTRA_PRODUCT, itemProduct);
+               //intent.putExtra(Constant.EXTRA_PRODUCT, itemProduct);
                 setResult(RESULT_OK, intent);
                 finish();
             }
@@ -57,8 +57,7 @@ public class ActivityProduct extends AppCompatActivity {
             itemProduct = getIntent().getParcelableExtra(Constant.EXTRA_PRODUCT);
             if (itemProduct != null) {
                 title.setText(itemProduct.getTitle());
-                location.setText(itemProduct.getLocation());
-                store.setText(itemProduct.getStore());
+                //store.setText(itemProduct.getStore());
                 phone.setText(itemProduct.getPhone());
                 switch (itemProduct.getImage()) {
                     case Constant.TYPE_MAC:

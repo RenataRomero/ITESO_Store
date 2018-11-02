@@ -11,7 +11,7 @@ import com.iteso.pdm18_scrollabletabs.beans.Store;
 import com.iteso.pdm18_scrollabletabs.controllers.CategoryControl;
 import com.iteso.pdm18_scrollabletabs.controllers.CityControl;
 import com.iteso.pdm18_scrollabletabs.controllers.StoreControl;
-import com.iteso.pdm18_scrollabletabs.DataBase.DataBaseHandler;
+import com.iteso.pdm18_scrollabletabs.database.DataBaseHandler;
 
 import com.iteso.pdm18_scrollabletabs.beans.User;
 

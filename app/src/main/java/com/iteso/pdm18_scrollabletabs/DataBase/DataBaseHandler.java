@@ -1,4 +1,4 @@
-package com.iteso.pdm18_scrollabletabs.DataBase;
+package com.iteso.pdm18_scrollabletabs.database;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;

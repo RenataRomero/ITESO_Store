@@ -1,5 +1,6 @@
 package com.iteso.pdm18_scrollabletabs.database;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -106,35 +107,39 @@ public class DataBaseHandler extends SQLiteOpenHelper {
 
         db.execSQL(tableStoreProduct);
 
-        String insertCategoryTechnology = "INSERT INTO "
-                + TABLE_CATEGORY + " (IdCategory, Name)"
-                + " VALUES (" + Constant.FRAGMENT_TECHNOLOGY + ", 'Technology'); ";
 
-        db.execSQL(insertCategoryTechnology);
+        ContentValues valuesTechnology = new ContentValues();
+        valuesTechnology.put(CATEGORY_ID, Constant.FRAGMENT_TECHNOLOGY); // set name
+        valuesTechnology.put(CATEGORY_NAME, "Technology");
 
-        String insertCategoryHome = "INSERT INTO "
-                + TABLE_CATEGORY + " (IdCategory, Name)"
-                + " VALUES (" + Constant.FRAGMENT_HOME + ", 'Home'); ";
+        db.insert(TABLE_CATEGORY,
+                null,  valuesTechnology);
 
-        db.execSQL(insertCategoryHome);
+        ContentValues valuesHome= new ContentValues();
+        valuesHome.put(CATEGORY_ID, Constant.FRAGMENT_HOME); // set name
+        valuesHome.put(CATEGORY_NAME, "Home");
 
-        String insertCategoryElectronics = "INSERT INTO "
-                + TABLE_CATEGORY + " (IdCategory, Name)"
-                + " VALUES (" + Constant.FRAGMENT_ELECTRONICS +", 'Electronics'); ";
+        db.insert(TABLE_CATEGORY,
+                null,  valuesHome);
 
-        db.execSQL(insertCategoryElectronics);
+        ContentValues valuesElectronics = new ContentValues();
+        valuesElectronics.put(CATEGORY_ID, Constant.FRAGMENT_ELECTRONICS); // set name
+        valuesElectronics.put(CATEGORY_NAME, "Electronics");
 
-        String insertCityZapopan = "INSERT INTO "
-                + TABLE_CITY + " (Name)"
-                + " VALUES ('Zapopan'); ";
+        db.insert(TABLE_CATEGORY,
+                null,  valuesElectronics);
 
-        db.execSQL(insertCityZapopan);
+        ContentValues valuesCityZapopan = new ContentValues();
+        valuesCityZapopan.put(CITY_NAME, "Zapopan"); // set name
 
-        String insertCityGuadalajara = "INSERT INTO "
-                + TABLE_CATEGORY + " (Name)"
-                + " VALUES ('Guadalajara'); ";
+        db.insert(TABLE_CITY,
+                null,  valuesCityZapopan);
 
-        db.execSQL(insertCityGuadalajara);
+        ContentValues valuesCityGuadalajara = new ContentValues();
+        valuesCityZapopan.put(CITY_NAME, "Guadalajara"); // set name
+
+        db.insert(TABLE_CITY,
+                null,  valuesCityGuadalajara);
 
     }
 
